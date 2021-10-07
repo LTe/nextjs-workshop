@@ -76,6 +76,7 @@ export default SelectDate;
 
 ```sh
 $ git clone git@github.com:LTe/movie-demo.git
+$ git checkout stage-0
 ```
 
 or
