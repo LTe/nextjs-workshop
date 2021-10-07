@@ -107,10 +107,6 @@ $ yarn dev
 ```ts
 // pages/index.tsx
 
-import { getRange } from '@utils/index';
-import { Dates } from '@components/Dates';
-import { GetServerSideProps } from 'next';
-
 const SelectDate = () => {
   const range = getRange(5);
 
@@ -119,12 +115,6 @@ const SelectDate = () => {
       <Dates range={range} />
     </div>
   );
-};
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  return {
-    props: {},
-  };
 };
 
 export default SelectDate;
@@ -137,10 +127,6 @@ export default SelectDate;
 
 ```ts
 // pages/[date]/index.tsx
-
-import { Cinemas } from '@components/Cinemas';
-import { cinemas } from '@utils/cinema-city';
-import { GetServerSideProps } from 'next';
 
 const SelectCinema = ({ date }: { date: string }) => {
   return (
@@ -165,11 +151,6 @@ export default SelectCinema;
 
 ```ts
 // pages/[date]/[cinema]/index.tsx
-
-import { GetServerSideProps } from 'next';
-import { CinemaCityResponse, extendEvents, getMovies } from '@utils/cinema-city';
-import { parseISO } from 'date-fns';
-import { Movies } from '@components/Movies';
 
 type Props = { data: CinemaCityResponse };
 type Params = { date: string; cinema: string };
